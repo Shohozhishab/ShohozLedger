@@ -1,10 +1,10 @@
 <div class="content-wrapper" id="viewpage">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1> Profit Ledger <small>Profit Ledger</small></h1>
+        <h1> Stock Ledger <small>Stock Ledger</small></h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Profit Ledger</li>
+            <li class="active">Stock Ledger</li>
         </ol>
     </section>
 
@@ -21,7 +21,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h3 class="box-title">Profit Ledger</h3>
+                                <h3 class="box-title">Stock Ledger</h3>
                             </div>
                             <div class="col-lg-3"></div>
                             <div class="col-lg-12" style="margin-top: 20px;">
@@ -37,7 +37,7 @@
                                 <th>Id</th>
                                 <th>Date</th>
                                 <th>Particulars</th>
-                                <th>Invoice Id</th>
+                                <th>Memo</th>
                                 <th>Debit</th>
                                 <th>Credit</th>
                                 <th>Balance</th>
@@ -46,20 +46,20 @@
                             <tbody>
                             <?php
 
-                            $totalRows = count($ledger_profit)-1;
+                            $totalRows = count($ledger_stock)-1;
                             for($i = $totalRows; $i >= 0; $i--) {
-                                $particulars = ($ledger_profit[$i]->particulars == NULL) ? "Payment" : $ledger_profit[$i]->particulars;
-                                $amountCr = ($ledger_profit[$i]->trangaction_type != "Cr.") ? "---" : showWithCurrencySymbol($ledger_profit[$i]->amount);
-                                $amountDr =($ledger_profit[$i]->trangaction_type != "Dr.")?"---":showWithCurrencySymbol($ledger_profit[$i]->amount);
+                                $particulars = ($ledger_stock[$i]->particulars == NULL) ? "Payment" : $ledger_stock[$i]->particulars;
+                                $amountCr = ($ledger_stock[$i]->trangaction_type != "Cr.") ? "---" : showWithCurrencySymbol($ledger_stock[$i]->amount);
+                                $amountDr =($ledger_stock[$i]->trangaction_type != "Dr.")?"---":showWithCurrencySymbol($ledger_stock[$i]->amount);
                                 ?>
                                 <tr>
-                                    <td><?php echo $ledger_profit[$i]->profit_id ?></td>
-                                    <td><?php echo $ledger_profit[$i]->createdDtm ?></td>
+                                    <td><?php echo $ledger_stock[$i]->stock_id ?></td>
+                                    <td><?php echo $ledger_stock[$i]->createdDtm ?></td>
                                     <td><?php echo $particulars ?></td>
-                                    <td><?php echo $ledger_profit[$i]->invoice_id ?></td>
+                                    <td><?php echo $ledger_stock[$i]->invoice_id ?></td>
                                     <td><?php echo $amountDr ?></td>
                                     <td><?php echo $amountCr ?></td>
-                                    <td><?php echo showWithCurrencySymbol($ledger_profit[$i]->rest_balance) ?></td>
+                                    <td><?php echo showWithCurrencySymbol($ledger_stock[$i]->rest_balance) ?></td>
                                 </tr>
                             <?php }?>
 
@@ -69,7 +69,7 @@
                                 <th>Id</th>
                                 <th>Date</th>
                                 <th>Particulars</th>
-                                <th>Invoice Id</th>
+                                <th>Memo</th>
                                 <th>Debit</th>
                                 <th>Credit</th>
                                 <th>Balance</th>
@@ -77,6 +77,7 @@
 
                             </tfoot>
                         </table>
+
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -114,7 +115,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        foreach ($ledger_profit as $row) {
+                        foreach ($ledger_stock as $row) {
 
                             $particulars = ($row->particulars == NULL) ? "Payment" : $row->particulars;
                             $amountCr = ($row->trangaction_type != "Cr.") ? "---" : showWithCurrencySymbol($row->amount);
