@@ -157,16 +157,6 @@ class Shops extends BaseController
                 //create Vat in vat_register table (end)
 
 
-                // create default store in stores table(start)
-                $storeData['sch_id'] = $shopsId;
-                $storeData['name'] = 'Default';
-                $storeData['description'] = 'Default Store';
-                $storeData['is_default'] = '1';
-                $storeData['createdDtm'] = date('Y-m-d h:i:s');
-                $this->storesModel->insert($storeData);
-                // create default store in stores table(end)
-
-
                 //general settings insert in gen_settings table (start)
                 $gen_settingsData = array(
                     array('sch_id' => $shopsId, 'label' => 'barcode_img_size', 'value' => '100'
@@ -460,34 +450,6 @@ class Shops extends BaseController
         $ledger_discounttab = DB()->table('ledger_discount');
         $ledger_discounttab->where('sch_id', $id)->delete();
 
-
-        $invoice_itemtab = DB()->table('invoice_item');
-        $invoice_itemtab->where('sch_id', $id)->delete();
-
-        $return_purchase_itemtab = DB()->table('return_purchase_item');
-        $return_purchase_itemtab->where('sch_id', $id)->delete();
-
-        $return_sale_itemtab = DB()->table('return_sale_item');
-        $return_sale_itemtab->where('sch_id', $id)->delete();
-
-
-        $productstab = DB()->table('products');
-        $pro = $productstab->where('sch_id', $id)->get()->getResult();
-        foreach ($pro as $row) {
-            $purchase_itemtab = DB()->table('purchase_item');
-            $purchase_itemtab->where('prod_id', $row->prod_id)->delete();
-        }
-
-        $return_purchasetab = DB()->table('return_purchase');
-        $return_purchasetab->where('sch_id', $id)->delete();
-
-        $purchasetab = DB()->table('purchase');
-        $purchasetab->where('sch_id', $id)->delete();
-
-
-        $money_receipttab = DB()->table('money_receipt');
-        $money_receipttab->where('sch_id', $id)->delete();
-
         $transactiontab = DB()->table('transaction');
         $transactiontab->where('sch_id', $id)->delete();
 
@@ -502,27 +464,6 @@ class Shops extends BaseController
 
         $banktab = DB()->table('bank');
         $banktab->where('sch_id', $id)->delete();
-
-
-        $return_saletab = DB()->table('return_sale');
-        $return_saletab->where('sch_id', $id)->delete();
-
-
-        $salestab = DB()->table('sales');
-        $salestab->where('sch_id', $id)->delete();
-
-        $invoicetab = DB()->table('invoice');
-        $invoicetab->where('sch_id', $id)->delete();
-
-
-        $productstab2 = DB()->table('products');
-        $productstab2->where('sch_id', $id)->delete();
-
-        $product_categorytab = DB()->table('product_category');
-        $product_categorytab->where('sch_id', $id)->delete();
-
-        $brandtab = DB()->table('brand');
-        $brandtab->where('sch_id', $id)->delete();
 
         $customerstab = DB()->table('customers');
         $customerstab->where('sch_id', $id)->delete();
@@ -539,18 +480,8 @@ class Shops extends BaseController
         $supplierstab = DB()->table('suppliers');
         $supplierstab->where('sch_id', $id)->delete();
 
-        $warranty_managetab = DB()->table('warranty_manage');
-        $warranty_managetab->where('sch_id', $id)->delete();
-
-        $lctab = DB()->table('lc');
-        $lctab->where('sch_id', $id)->delete();
-
-
         $vat_registertab = DB()->table('vat_register');
         $vat_registertab->where('sch_id', $id)->where('is_default', '0')->delete();
-
-        $storestab = DB()->table('stores');
-        $storestab->where('sch_id', $id)->where('is_default', '0')->delete();
 
         $userstab = DB()->table('users');
         $userstab->where('sch_id', $id)->where('is_default', '0')->delete();
@@ -558,21 +489,11 @@ class Shops extends BaseController
         $ledger_service_charge = DB()->table('ledger_service_charge');
         $ledger_service_charge->where('sch_id', $id)->delete();
 
-        $service_invoice_item = DB()->table('service_invoice_item');
-        $service_invoice_item->where('sch_id', $id)->delete();
-
-        $service_invoice = DB()->table('service_invoice');
-        $service_invoice->where('sch_id', $id)->delete();
-
-        $services = DB()->table('services');
-        $services->where('sch_id', $id)->delete();
-
         $transactionLog = DB()->table('transaction_log');
         $transactionLog->where('sch_id', $id)->delete();
 
         $transactionEditLog = DB()->table('transaction_edit_log');
         $transactionEditLog->where('sch_id', $id)->delete();
-
 
         $cash = array(
             'cash' => 0,

@@ -107,6 +107,26 @@
             <?php echo add_main_ajax_based_menu_with_permission('Account Head', '/Admin/Loan_provider', $role_id, 'fa fa-user-plus', '/Admin/Loan_provider_ajax','Loan_provider'); ?>
 
             <?php
+            $modArrayEmp = ['Employee','Ledger_employee'];
+            $menuAccessEmp = all_menu_permission_check($modArrayEmp,$role_id);
+            if ($menuAccessEmp == true){
+                ?>
+                <li class="treeview">
+                    <a href="#" >
+                        <i class="fa fa-line-chart"></i>
+                        <span>Employee</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <?php echo add_main_ajax_based_menu_with_permission('Employee', '/Admin/Employee', $role_id, 'fa fa-line-chart', '/Admin/Employee_ajax','Employee'); ?>
+                        <?php echo add_main_ajax_based_menu_with_permission('Salary', '/Admin/Ledger_employee', $role_id, 'fa fa-line-chart', '/Admin/Ledger_employee_ajax','Ledger_employee'); ?>
+                    </ul>
+                </li>
+            <?php } ?>
+
+            <?php
                 $modArrayBank = ['Bank','Bank_deposit','Bank_withdraw','Chaque'];
                 $menuAccessBank = all_menu_permission_check($modArrayBank,$role_id);
                 if ($menuAccessBank == true){
