@@ -238,7 +238,7 @@
                                                 <tbody>
                                                 <?php $i = 0;
                                                 foreach ($transaction_data as $row) {
-                                                    if ($row->loan_pro_id == NULL && $row->customer_id == NULL && $row->supplier_id == NULL && $row->bank_id == NULL && $row->lc_id == NULL && $row->employee_id == NULL && $row->trangaction_type == 'Cr.') { ?>
+                                                    if ($row->loan_pro_id == NULL && $row->customer_id == NULL && $row->supplier_id == NULL && $row->lc_id == NULL && $row->employee_id == NULL && $row->trangaction_type == 'Cr.') { ?>
                                                         <tr>
                                                             <td><?php echo ++$i; ?></td>
                                                             <td>Expense</td>
