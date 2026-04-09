@@ -72,7 +72,6 @@
                     <?php echo add_main_ajax_based_menu_with_permission('Account Head Ledger', '/Admin/Ledger_loan', $role_id, 'fa fa-book', '/Admin/Ledger_loan_ajax','Ledger_loan'); ?>
                     <?php echo add_main_ajax_based_menu_with_permission('Customer Ledger', '/Admin/Ledger', $role_id, 'fa fa-book', '/Admin/Ledger_ajax','Ledger'); ?>
                     <?php echo add_main_ajax_based_menu_with_permission('Supplier Ledger', '/Admin/Ledger_suppliers', $role_id, 'fa fa-book', '/Admin/Ledger_suppliers_ajax','Ledger_suppliers'); ?>
-                    <?php echo add_main_ajax_based_menu_with_permission('Ledger Stock', '/Admin/Ledger_stock', $role_id, 'fa fa-book', '/Admin/Ledger_stock_ajax','Ledger_stock'); ?>
                     <?php echo add_main_ajax_based_menu_with_permission('Ledger Expense', '/Admin/Ledger_expense', $role_id, 'fa fa-book', '/Admin/Ledger_expense_ajax','Ledger_expense'); ?>
                     <?php echo add_main_ajax_based_menu_with_permission('Ledger other sales', '/Admin/Ledger_other_sales', $role_id, 'fa fa-book', '/Admin/Ledger_other_sales_ajax','Ledger_other_sales'); ?>
                 </ul>
