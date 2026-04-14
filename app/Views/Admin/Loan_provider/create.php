@@ -56,43 +56,6 @@
 
 
                             <div class="col-lg-6" style="border-left: 1px solid #cecdcd;">
-                                <form id="geniusform3" action="<?php echo $action2; ?>" method="post">
-                                    <h4>Existing Account Head</h4>
-                                    <div class="form-group">
-                                        <label for="varchar">Name </label>
-                                        <input type="text" class="form-control" name="name" id="name_ex" placeholder="Name" required/>
-                                        <div class="error"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="int">Phone </label>
-                                        <input type="number" class="form-control" name="phone" id="phone_ex" placeholder="Phone" required />
-                                        <div class="error"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="enum">Transaction Type </label>
-                                        <select class="form-control input" name="transaction_type" id="transaction_type" required>
-                                            <option value="">Please Select</option>
-                                            <option value="1">খরচ (Cr.) /পাওনাদার</option>
-                                            <option value="2">জমা (Dr.) /দেনাদার</option>
-                                        </select>
-                                        <div class="error"></div>
-                                    </div>
-
-                                    <div class="form-group databank" id="chaque">
-                                        <label for="int">Amount </label>
-                                        <input type="number" class="form-control input" name="amount" id="amount" oninput="minusValueCheck(this.value,this)" placeholder="Amount"
-                                               required />
-                                        <div class="error"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Adress </label>
-                                        <textarea class="form-control" rows="3" name="address" id="address" placeholder="address"></textarea>
-                                    </div>
-
-                                    <button type="button" class="btn btn-primary" onclick="accountExValidat()"  >Register</button>
-                                    <a href="javascript:void(0)" onclick="showData('<?php echo site_url('/Admin/Loan_provider_ajax/'); ?>','<?php echo '/Admin/Loan_provider/'; ?>')" class="btn btn-default">Cancel</a>
-                                </form>
-
                             </div>
                         </div>
 

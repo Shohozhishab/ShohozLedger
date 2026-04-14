@@ -54,34 +54,6 @@
 
 
                             <div class="col-lg-6" style="border-left: 1px solid #cecdcd;">
-
-                                <form id="geniusform3" action="<?php echo $action2; ?>" method="post">
-                                    <h4>Existing Employee</h4>
-                                    <div class="form-group">
-                                        <label for="varchar">Name</label>
-                                        <input type="text" class="form-control" name="name" id="name_ex" placeholder="Name"  required>
-                                        <div class="error"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="varchar">Salary</label>
-                                        <input type="number" class="form-control" name="salary" id="salary_ex" placeholder="Salary" required >
-                                        <div class="error"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="varchar">Age</label>
-                                        <input type="number" class="form-control" name="age" id="age" placeholder="Age "  />
-                                    </div>
-                                    <div class="form-group databank" id="chaque">
-                                        <label for="int">Amount </label>
-                                        <input type="number" class="form-control input"
-                                               name="amount" id="amount" placeholder="Amount" oninput="minusValueCheck(this.value,this)" required />
-                                        <div class="error"></div>
-                                    </div>
-
-                                    <button type="button" class="btn btn-primary" onclick="employeeExValidat()" >Register</button>
-                                    <a href="javascript:void(0)" onclick="showData('<?php echo site_url('/Admin/Employee_ajax/'); ?>','<?php echo '/Admin/Employee/'; ?>')" class="btn btn-default">Cancel</a>
-                                </form>
-
                             </div>
                         </div>
 
